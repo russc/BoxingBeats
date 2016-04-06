@@ -1,0 +1,21 @@
+<div class="container-fluid" ng-keydown="beatTap('start')" ng-keyup="beatTap('stop')">
+  <div class="row">
+
+      <h1>Beat Boxes</h1>
+      <div id="controls">
+        <button id="playButton" type="button" ngDisabled="isPlaying" ng-click="play();">{{buttonText}}</button>
+
+        <input type="number" min="40" max="200" step="4" name="tempo" ng-model="tempo" placeholder="{{tempo}}">
+        <!-- <input type="number" min=".05" max="1" step=".05" name="percentageOfBeat" ng-model="percentageOfBeat" placeholder="{{percentageOfBeat}}"> -->
+        <!-- <input type="number" min="0" max="2" step="1" name="noteResolution" ng-model="noteResolution" placeholder="{{noteResolution}}"> -->
+        <input type="range" min="-1" max="10" step=".1" value="{{metVolume}}" name="metVolume" ng-model="metVolume">
+        <h1>{{beatValue}}</h1>
+      </div>
+      <div class="btn-group" role="group" aria-label="...">
+        <button ng-repeat="i in range(16)" type="button" class="btn btn-lg " ng-class="isActive(i)" ng-click="toggleBeat(i)">{{i}}</button>
+      </div>
+
+    </div>
+
+
+</div>

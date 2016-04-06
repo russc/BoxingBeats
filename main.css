@@ -1,0 +1,36 @@
+/* CSS declarations go here */
+li{font-family: Helvetica;}
+section {
+    clear:both;
+}
+#nav {
+    display:block;
+    position:relative;
+    margin:10px 0 0px 5px;
+}
+#met {
+    margin:15px 3px 3px 125px;
+    position:relative;
+    padding: 3px;
+    border:2px solid blue;
+    width:50px;
+    height:50px;
+    -webkit-border-radius:30px 30px 30px 30px;
+    border-radius:30px 30px 30px 30px;
+    background:red;
+    clear:left;
+}
+.left {
+    float:left;
+}
+.box {
+    border:2px solid red;
+    margin:10px;
+    padding:5px;
+    height: 300px;
+    width:120px;
+    overflow:scroll;
+}
+.beatOn{
+  background-color: green;
+}
