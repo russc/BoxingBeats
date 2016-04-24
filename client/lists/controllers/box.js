@@ -31,6 +31,47 @@ angular.module("musicachieve").controller("BoxesCtrl", ['$scope', '$rootScope', 
       }
       return numbers;
     };
+
+    $scope.renderNotes = function () {
+      var o = ($scope.pattern.indexOf(0) > -1) ? "C'" :'z';
+      var o_e = ($scope.pattern.indexOf(1) > -1) ? "C'" :'z';
+      var o_an = ($scope.pattern.indexOf(2) > -1) ? "C'" :'z';
+      var o_a = ($scope.pattern.indexOf(3) > -1) ? "C'" :'z';
+      var one = o+o_e+o_an+o_a;
+
+      var t = ($scope.pattern.indexOf(4) > -1) ? "C'" :'z';
+      var t_e = ($scope.pattern.indexOf(5) > -1) ? "C'" :'z';
+      var t_an = ($scope.pattern.indexOf(6) > -1) ? "C'" :'z';
+      var t_a = ($scope.pattern.indexOf(7) > -1) ? "C'" :'z';
+      var two = t+t_e+t_an+t_a;
+
+      var th = ($scope.pattern.indexOf(8) > -1) ? "C'" :'z';
+      var th_e = ($scope.pattern.indexOf(9) > -1) ? "C'" :'z';
+      var th_an = ($scope.pattern.indexOf(10) > -1) ? "C'" :'z';
+      var th_a = ($scope.pattern.indexOf(11) > -1) ? "C'" :'z';
+      var three = th+th_e+th_an+th_a;
+
+      var f = ($scope.pattern.indexOf(12) > -1) ? "C'" :'z';
+      var f_e = ($scope.pattern.indexOf(13) > -1) ? "C'" :'z';
+      var f_an = ($scope.pattern.indexOf(14) > -1) ? "C'" :'z';
+      var f_a = ($scope.pattern.indexOf(12) > -1) ? "C'" :'z';
+      var four = f+f_e+f_an+f_a;
+
+      function eighthRest(b) {
+        var val = b.replace("zz", "z2");
+
+        return val;
+      }
+
+      var beats = "X: \n L:1/16 \n M:none \n K: C clef=treble \n "+eighthRest(one)+" "+eighthRest(two)+" "+eighthRest(three)+" "+eighthRest(four)+"|";
+
+      ABCJS.renderAbc('notation', beats, {}, {
+        scale: 2
+      });
+
+    };
+    $scope.renderNotes();
+
     $scope.toggleBeat = function(beat) {
       if ($scope.pattern.indexOf(beat) > -1) {
         var index = $scope.pattern.indexOf(beat);
@@ -39,6 +80,7 @@ angular.module("musicachieve").controller("BoxesCtrl", ['$scope', '$rootScope', 
       } else {
         $scope.pattern.push(beat);
       }
+      $scope.renderNotes();
     };
     $scope.isActive = function(beat) {
       if ($scope.pattern.indexOf(beat) > -1) {
@@ -286,6 +328,7 @@ angular.module("musicachieve").controller("BoxesCtrl", ['$scope', '$rootScope', 
       window.onresize = $scope.resetCanvas;
 
       requestAnimFrame($scope.draw); // start the drawing loop.
+
     };
 
 
