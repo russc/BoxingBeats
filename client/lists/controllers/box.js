@@ -54,7 +54,7 @@ angular.module("musicachieve").controller("BoxesCtrl", ['$scope', '$rootScope', 
       var f = ($scope.pattern.indexOf(12) > -1) ? "C'" :'z';
       var f_e = ($scope.pattern.indexOf(13) > -1) ? "C'" :'z';
       var f_an = ($scope.pattern.indexOf(14) > -1) ? "C'" :'z';
-      var f_a = ($scope.pattern.indexOf(12) > -1) ? "C'" :'z';
+      var f_a = ($scope.pattern.indexOf(15) > -1) ? "C'" :'z';
       var four = f+f_e+f_an+f_a;
 
       function eighthRest(b) {
